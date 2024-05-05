@@ -118,6 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912e2c495a1d3044b8db6609fdfde75d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
   health: 50
   VFX: {fileID: 1299904768080085076, guid: d81d7367a7692ae4e954ca7ae2afa7e3, type: 3}
