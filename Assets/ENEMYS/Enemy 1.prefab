@@ -119,5 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 350
+  health: 150
   VFX: {fileID: 1299904768080085076, guid: d81d7367a7692ae4e954ca7ae2afa7e3, type: 3}
