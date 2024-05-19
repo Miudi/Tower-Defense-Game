@@ -330,6 +330,8 @@
 "Assets/AurynSky/Dungeon Pack/Scripts/SpikeTrapDemo.cs"
 "Assets/AurynSky/Dungeon Pack/Scripts/TrapDoorDemo.cs"
 "Assets/ENEMYS/Enemy.cs"
+"Assets/GeneticAlgorithm_.cs"
+"Assets/Map_Objects/MapGenerator.cs"
 "Assets/TOWERS/Gun_Tower/Bullet.cs"
 "Assets/TOWERS/Positioning/Tower_Spot.cs"
 "Assets/TOWERS/Turret.cs"

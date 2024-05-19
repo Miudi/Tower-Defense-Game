@@ -30,7 +30,7 @@ public class Tower_Spot : MonoBehaviour
     {
         if (currentTower == null)
         {
-            Vector3 towerPosition = transform.position + new Vector3(0, 0.10f, 0);
+            Vector3 towerPosition = transform.position + new Vector3(0, 0.5f, 0);
             currentTower = Instantiate(towerPrefab, towerPosition, Quaternion.identity);
         }
     }

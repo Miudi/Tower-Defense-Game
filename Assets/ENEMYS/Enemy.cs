@@ -10,25 +10,39 @@ public class Enemy : MonoBehaviour
 
     private Transform target;
     private int wavepointIndex = 0;
+    private bool map_loaded = false;
+
 
     void Start()
     {
-        target = Waypoints.points[0];
+        StartCoroutine(WaitForStartObject());
     }
 
+    IEnumerator WaitForStartObject()
+    {
+        yield return new WaitUntil(() => GameObject.Find("Start") != null);
+        target = Waypoints.points[0];
+        map_loaded = true;
+    }
 
     void Update ()
     {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        if (map_loaded)
+        {
+            Vector3 dir = target.position - transform.position;
+            transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, target.position)<= 0.1f) {
-            if ((wavepointIndex < Waypoints.points.Length - 1) && ( health > 0)){
-                wavepointIndex++;
-                target = Waypoints.points[wavepointIndex];
-            }
-            else{
-                Destroy_With_Effects();
+            if (Vector3.Distance(transform.position, target.position) <= 0.1f)
+            {
+                if ((wavepointIndex < Waypoints.points.Length - 1) && (health > 0))
+                {
+                    wavepointIndex++;
+                    target = Waypoints.points[wavepointIndex];
+                }
+                else
+                {
+                    Destroy_With_Effects();
+                }
             }
         }
     }

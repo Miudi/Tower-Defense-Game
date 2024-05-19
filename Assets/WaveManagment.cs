@@ -20,28 +20,39 @@ public class WaveManagment : MonoBehaviour
     private int currentWaveIndex = 0;
     private Transform startSpawnPoint;
     private bool isSpawningWave = false;
+    private bool started = false;
 
     void Start()
     {
-        startSpawnPoint = GameObject.Find("Map_Objects/PATH/START").transform;
+        StartCoroutine(FindStartSpawnPoint());
+    }
+
+    IEnumerator FindStartSpawnPoint()
+    {
+        yield return new WaitUntil(() => GameObject.Find("Waypoints/Start") != null);
+        startSpawnPoint = GameObject.Find("Waypoints/Start").transform;
+        started = true;
     }
 
     void Update()
     {
-        if (!isSpawningWave && AllEnemiesDestroyed())
+        if (started == true)
         {
-
-            if (currentWaveIndex < waves.Count)
+            if (!isSpawningWave && AllEnemiesDestroyed())
             {
-                Wave currentWave = waves[currentWaveIndex];
-                StartCoroutine(SpawnEnemiesWithDelay(currentWave));
-            }
-            else
-            {
-                Debug.Log("All waves completed.");
-            }
 
-            currentWaveIndex++;
+                if (currentWaveIndex < waves.Count)
+                {
+                    Wave currentWave = waves[currentWaveIndex];
+                    StartCoroutine(SpawnEnemiesWithDelay(currentWave));
+                }
+                else
+                {
+                    Debug.Log("All waves completed.");
+                }
+
+                currentWaveIndex++;
+            }
         }
     }
 

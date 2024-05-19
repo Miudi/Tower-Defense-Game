@@ -9,7 +9,7 @@ public class Turret : MonoBehaviour
     public Transform Rotating_part;
     public Transform shoot_position;
     public GameObject Bullet;
-    public float range = 2f;
+    public float range = 1.5f;
     public float bullet_damage = 5f;
     public float bullet_speed = 10f;
     public float attack_rate = 1f;
@@ -58,6 +58,7 @@ public class Turret : MonoBehaviour
         if (target != null)
         {
             rotate();
+            //OnDrawGizmosSelected();
         }
         else
         {
